@@ -1,3 +1,381 @@
-head{
-    background-color: antiquewhite;
+.card-img-top, .carousel-item img {
+  height: 250px; /* Fixed height */
+  object-fit: cover; /* Scales/crops perfectly */
+  object-position: center;
+}
+
+
+
+
+/* styles.css - Dark Tech Circuit Theme for PCB Electronics Service */
+
+/* ==========================================================================
+   1. CSS Reset & Base Styles
+   ========================================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  line-height: 1.6;
+  color: #e0e6ed;
+  overflow-x: hidden;
+}
+
+/* ==========================================================================
+   2. Typography (Exo 2 + Roboto)
+   ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;600;700;800&family=Roboto:wght@300;400;500;700&display=swap');
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Exo 2', sans-serif;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+h1 { font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 800; }
+h2 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; }
+h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
+h4, h5 { font-size: 1.25rem; font-weight: 600; }
+
+p {
+  font-size: 1rem;
+  font-weight: 400;
+  margin-bottom: 1rem;
+}
+
+.text-muted {
+  color: #a0b0c0 !important;
+  font-weight: 300;
+}
+
+/* ==========================================================================
+   3. Color Variables (Dark Tech Circuit Theme)
+   ========================================================================== */
+:root {
+  --primary: #1a1a2e;
+  --primary-dark: #16213e;
+  --secondary: #0f0f23;
+  --accent: #00d4ff;
+  --accent-glow: #00d4ff80;
+  --accent-dark: #0099cc;
+  --text-light: #e0e6ed;
+  --text-muted: #a0b0c0;
+  --text-dark: #4a5568;
+  --white: #ffffff;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  --shadow-hover: 0 20px 40px rgba(0, 212, 255, 0.15);
+  --border-light: rgba(255, 255, 255, 0.1);
+}
+
+/* ==========================================================================
+   4. Navbar (Sticky + Responsive)
+   ========================================================================== */
+.navbar {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border-light);
+  padding: 1rem 0;
+  transition: all 0.3s ease;
+  z-index: 1030;
+}
+
+.navbar.scrolled {
+  padding: 0.5rem 0;
+  box-shadow: var(--shadow);
+}
+
+.navbar-brand {
+  font-family: 'Exo 2', sans-serif;
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--accent) !important;
+  text-shadow: 0 0 20px var(--accent-glow);
+}
+
+.nav-link {
+  color: var(--text-light) !important;
+  font-weight: 500;
+  padding: 0.75rem 1.5rem !important;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-link::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, var(--accent-glow), transparent);
+  transition: left 0.5s;
+}
+
+.nav-link:hover::before {
+  left: 100%;
+}
+
+.nav-link:hover {
+  color: var(--accent) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px var(--accent-glow);
+}
+
+/* ==========================================================================
+   5. Hero Carousel (Full Responsive)
+   ========================================================================== */
+#hero {
+  min-height: 100vh;
+  position: relative;
+  background: var(--secondary);
+}
+
+.carousel-item img {
+  height: 100vh;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.carousel-caption {
+  background: linear-gradient(135deg, rgba(26, 26, 46, 0.95), rgba(22, 33, 62, 0.95));
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+  padding: 3rem 2rem;
+  max-width: 700px;
+  margin: 0 auto;
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow);
+}
+
+.carousel-caption h1 {
+  background: linear-gradient(135deg, var(--accent), #00ff88);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 1.5rem;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+  border: none;
+  padding: 1rem 2.5rem;
+  font-weight: 600;
+  border-radius: 50px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 30px var(--accent-glow);
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 40px var(--accent-glow);
+}
+
+/* ==========================================================================
+   6. Cards (Perfect Image Scaling + Hover Effects)
+   ========================================================================== */
+.card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--border-light);
+  border-radius: 20px;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  height: 100%;
+}
+
+.card:hover {
+  transform: translateY(-15px) scale(1.02);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--accent);
+}
+
+.card-img-top {
+  height: 250px;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.4s ease;
+}
+
+.card:hover .card-img-top {
+  transform: scale(1.1);
+}
+
+.card-body {
+  padding: 2rem;
+}
+
+.card-title {
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+
+/* ==========================================================================
+   7. Sections (Responsive Spacing)
+   ========================================================================== */
+section {
+  padding: 6rem 0;
+}
+
+#services {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+}
+
+#projects {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+section h2 {
+  position: relative;
+  display: inline-block;
+}
+
+section h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent), #00ff88);
+  border-radius: 2px;
+}
+
+/* ==========================================================================
+   8. Contact Form (Glassmorphism)
+   ========================================================================== */
+#contact {
+  background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
+}
+
+.form-control {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--border-light);
+  border-radius: 15px;
+  color: var(--text-light);
+  padding: 1rem 1.25rem;
+  transition: all 0.3s ease;
+}
+
+.form-control:focus {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: var(--accent);
+  box-shadow: 0 0 0 0.2rem var(--accent-glow);
+  color: var(--text-light);
+}
+
+.form-control::placeholder {
+  color: var(--text-muted);
+}
+
+.form-label {
+  font-weight: 500;
+  color: var(--text-light);
+  margin-bottom: 0.75rem;
+}
+
+/* ==========================================================================
+   9. Footer
+   ========================================================================== */
+footer {
+  background: var(--primary-dark);
+  border-top: 1px solid var(--border-light);
+}
+
+/* ==========================================================================
+   10. Responsive Design (Mobile First)
+   ========================================================================== */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0.75rem 0;
+  }
+  
+  .carousel-caption {
+    padding: 2rem 1.5rem;
+    margin: 0 1rem;
+  }
+  
+  .carousel-caption h1 {
+    font-size: 2rem;
+  }
+  
+  section {
+    padding: 4rem 0;
+  }
+  
+  .card-body {
+    padding: 1.5rem;
+  }
+  
+  .btn-primary {
+    padding: 0.875rem 2rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .carousel-caption {
+    padding: 1.5rem 1rem;
+  }
+  
+  section {
+    padding: 3rem 0;
+  }
+}
+
+/* ==========================================================================
+   11. Animations & Utilities
+   ========================================================================== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+/* Smooth scroll offset for fixed navbar */
+html:not([data-scroll="0"]) #services,
+html:not([data-scroll="0"]) #projects,
+html:not([data-scroll="0"]) #contact {
+  scroll-margin-top: 90px;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(var(--accent), var(--accent-dark));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
 }
