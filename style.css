@@ -355,6 +355,69 @@ footer small {
   font-size: 0.875rem;
 }
 
+
+/* Navbar Logo Styles */
+/* Perfect Navbar Logo Sizing */
+.navbar-logo {
+  height: 50px;        /* Perfect navbar height */
+  width: auto;         /* Maintain aspect ratio */
+  min-width: 50px;     /* Minimum width for circular logo */
+  object-fit: contain; /* Perfect fit without distortion */
+  border-radius: 50%;  /* Circular if needed */
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.navbar-brand:hover .navbar-logo {
+  transform: scale(1.05) rotate(5deg); /* Nice hover effect */
+  filter: drop-shadow(0 4px 12px var(--accent-glow));
+}
+
+/* Brand text (Desktop only) */
+.navbar-brand-text {
+  font-family: 'Exo 2', sans-serif;
+  font-weight: 700;
+  font-size: 1.4rem;   /* Slightly smaller for logo balance */
+  color: var(--accent) !important;
+  margin-left: 0.5rem;
+}
+
+/* MOBILE: Logo only, perfectly sized */
+@media (max-width: 991.98px) {
+  .navbar-logo {
+    height: 45px;      /* Perfect mobile navbar height */
+    min-width: 45px;
+  }
+  
+  .navbar-brand-text {
+    display: none !important;
+  }
+  
+  .navbar-brand {
+    padding: 0.5rem 0; /* Extra mobile padding */
+  }
+}
+
+/* DESKTOP: Logo + Text balanced */
+@media (min-width: 992px) {
+  .navbar-logo {
+    height: 55px;      /* Larger desktop logo */
+    min-width: 55px;
+  }
+  
+  .navbar-brand-text {
+    display: inline-block !important;
+  }
+}
+
+/* Navbar padding adjustment for logo height */
+.navbar {
+  padding: 0.75rem 0;
+}
+
+.navbar-expand-lg .navbar-brand {
+  padding: 0.5rem 1rem;
+}
+
 /* ==========================================================================
    RESPONSIVE
    ========================================================================== */
